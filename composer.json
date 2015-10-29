@@ -3,7 +3,14 @@
     "type": "library",
     "homepage": "https://github.com/hauptmedia/php-rdkafka-lib",
     "license": "MIT",
+    "autoload": {
+        "psr-0": { "": "src/" },
+        "classmap": [
+          "stubs"
+        ]
+    },
     "require": {
-        "php": ">=5.3"
+        "php": ">=5.3",
+	"ext-rdkafka": "*"
     }
 }
