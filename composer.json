@@ -1,0 +1,9 @@
+{
+    "name": "hauptmedia/php-rdkafka-lib",
+    "type": "library",
+    "homepage": "https://github.com/hauptmedia/php-rdkafka-lib",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.3"
+    }
+}
