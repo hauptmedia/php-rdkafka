@@ -1,7 +1,7 @@
 {
-    "name": "hauptmedia/rdkafka-lib",
+    "name": "hauptmedia/rdkafka-stub",
     "type": "library",
-    "homepage": "https://github.com/hauptmedia/php-rdkafka-lib",
+    "homepage": "https://github.com/hauptmedia/php-rdkafka-stub",
     "license": "MIT",
     "autoload": {
         "classmap": [
@@ -10,6 +10,6 @@
     },
     "require": {
         "php": ">=5.3",
-	"ext-rdkafka": "*"
+	    "ext-rdkafka": "*"
     }
 }
