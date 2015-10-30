@@ -1,6 +1,6 @@
 <?php
 class RdKafka {
-    public function __construct(RdKafka\Conf $conf = null) {}
+    public function __construct(\RdKafka\Conf $conf = null) {}
 
     /**
      * Adds a one or more brokers to the instance's list of initial brokers. Additional brokers will be discovered
@@ -30,5 +30,5 @@ class RdKafka {
      * @param int $timeout_ms maximum response time before failing
      * @return \RdKafka\Metadata
      */
-    public function metadata($all_topics, RdKafka\Topic $only_topic = null, $timeout_ms) {}
+    public function metadata($all_topics, \RdKafka\Topic $only_topic = null, $timeout_ms) {}
 }

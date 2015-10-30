@@ -1,4 +1,6 @@
 <?php
+namespace RdKafka;
+
 /**
  * Class Message
  * A Kafka message as returned by the consuming methods.
