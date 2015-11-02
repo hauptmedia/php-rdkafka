@@ -11,7 +11,8 @@ namespace RdKafka;
  * report per-topic+partition consumer errors (->err != 0)
  * The application must check err to decide what action to take.
  */
-class Message {
+final class Message
+{
     /**
      * Non-zero for error signaling. Use errstr() for a string representation.
      * @var int

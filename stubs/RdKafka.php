@@ -1,5 +1,6 @@
 <?php
-class RdKafka {
+class RdKafka
+{
     public function __construct(\RdKafka\Conf $conf = null) {}
 
     /**

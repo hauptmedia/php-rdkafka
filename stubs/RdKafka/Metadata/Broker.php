@@ -1,7 +1,8 @@
 <?php
 namespace RdKafka\Metadata;
 
-class Broker {
+final class Broker
+{
     /**
      * @return int
      */

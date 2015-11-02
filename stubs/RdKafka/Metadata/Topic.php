@@ -1,7 +1,8 @@
 <?php
 namespace RdKafka\Metadata;
 
-class Topic {
+final class Topic
+{
     /**
      * Returns the topic name
      * @return string

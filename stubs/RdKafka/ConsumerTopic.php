@@ -1,7 +1,8 @@
 <?php
 namespace RdKafka;
 
-class ConsumerTopic extends \RdKafka\Topic {
+final class ConsumerTopic extends Topic
+{
     /**
      * Start consuming messages for $partition at offset $offset which may either be a proper offset (0..N) or one of the the special offsets:
      * RD_KAFKA_OFFSET_BEGINNING, RD_KAFKA_OFFSET_END, RD_KAFKA_OFFSET_STORED, rd_kafka_offset_tail(..).
@@ -76,5 +77,4 @@ class ConsumerTopic extends \RdKafka\Topic {
      * @throws \RdKafka\Exception
      */
     public function offsetStore($partition, $offset) {}
-
 }

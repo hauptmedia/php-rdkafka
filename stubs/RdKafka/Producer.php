@@ -1,7 +1,8 @@
 <?php
 namespace RdKafka;
 
-class Producer extends \RdKafka {
+final class Producer extends \RdKafka
+{
     /**
      * Creates a new RdKafka\ProducerTopic for topic named $topic.
      *

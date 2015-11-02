@@ -1,7 +1,8 @@
 <?php
 namespace RdKafka;
 
-class Conf {
+class Conf
+{
     /**
      * Creates a new configuration.
      * The list of available configuration properties is documented at
@@ -22,5 +23,4 @@ class Conf {
      * @throws \RdKafka\Exception
      */
     public function set($name, $value) {}
-
 }

@@ -1,7 +1,8 @@
 <?php
 namespace RdKafka;
 
-class Consumer extends \RdKafka {
+final class Consumer extends \RdKafka
+{
     /**
      * @return \RdKafka\Queue
      */
@@ -15,5 +16,5 @@ class Consumer extends \RdKafka {
      * that has no effect on the topic. See RdKafka\TopicConf for more information.
      * @return \RdKafka\ConsumerTopic
      */
-    public function newTopic($topic, \RdKafka\TopicConf $conf = null) {}
+    public function newTopic($topic, TopicConf $conf = null) {}
 }

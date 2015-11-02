@@ -1,6 +1,7 @@
 <?php
 namespace RdKafka;
 
-class Exception extends \Exception {
+class Exception extends \Exception
+{
 
 }

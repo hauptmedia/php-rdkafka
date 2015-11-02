@@ -1,7 +1,8 @@
 <?php
 namespace RdKafka;
 
-class Topic {
+class Topic
+{
     /**
      * Returns the topic name.
      * @return string

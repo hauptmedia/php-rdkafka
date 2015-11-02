@@ -1,7 +1,8 @@
 <?php
 namespace RdKafka\Metadata;
 
-class Partition {
+final class Partition
+{
     /**
      * @return int
      */

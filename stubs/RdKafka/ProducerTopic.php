@@ -1,7 +1,8 @@
 <?php
 namespace RdKafka;
 
-class ProducerTopic extends \RdKafka\Topic {
+final class ProducerTopic extends Topic
+{
 
     /**
      * Produce and send a single message to broker.

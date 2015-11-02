@@ -1,19 +1,20 @@
 <?php
 namespace RdKafka;
 
-class Metadata {
+class Metadata
+{
     /**
      * @return int
      */
-    public function getOrigBrokerId() { }
+    public function getOrigBrokerId() {}
 
     /**
      * Returns the broker originating this metadata.
      */
-    public function getOrigBrokerName() { }
+    public function getOrigBrokerName() {}
 
     /**
      *
      */
-    public function getBrokers() { }
+    public function getBrokers() {}
 }

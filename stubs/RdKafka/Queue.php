@@ -10,7 +10,8 @@ namespace RdKafka;
  * Class Queue
  * @package RdKafka
  */
-class Queue {
+class Queue
+{
     /**
      * Consume a single message from $partition.
      *
