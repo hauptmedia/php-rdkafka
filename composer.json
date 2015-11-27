@@ -4,6 +4,7 @@
     "homepage": "https://github.com/hauptmedia/php-rdkafka-stub",
     "license": "MIT",
     "autoload": {
+        "psr-0": { "": "src/" },
         "classmap": [
           "stubs"
         ]
