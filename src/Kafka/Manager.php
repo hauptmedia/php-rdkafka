@@ -29,9 +29,9 @@ class Manager
     /**
      * @param string $topic
      * @param ConsumerConfiguration|null $consumerConfiguration
-     * @return ConsumerTopic
+     * @return ConsumerTopicFacade
      */
-    public function createConsumerTopic($topic, ConsumerConfiguration $consumerConfiguration = null) {
+    public function createConsumerTopicFacade($topic, ConsumerConfiguration $consumerConfiguration = null) {
         if(null === $consumerConfiguration) {
             $consumerConfiguration = new ConsumerConfiguration();
         }
@@ -40,7 +40,7 @@ class Manager
             $this->rdKafkaConsumer = $this->createConsumer();
         }
 
-        return new ConsumerTopic(
+        return new ConsumerTopicFacade(
             $this->rdKafkaConsumer->newTopic($topic, $consumerConfiguration->toRdKafkaTopicConfig())
         );
 
@@ -48,9 +48,9 @@ class Manager
 
     /**
      * @param ProducerConfiguration|null $producerConfiguration
-     * @return ProducerTopic
+     * @return ProducerTopicFacade
      */
-    public function createProducerTopic($topic, ProducerConfiguration $producerConfiguration = null) {
+    public function createProducerTopicFacade($topic, ProducerConfiguration $producerConfiguration = null) {
         if(null === $producerConfiguration) {
             $producerConfiguration = new ProducerConfiguration();
         }
@@ -59,7 +59,7 @@ class Manager
             $this->rdKafkaProducer = $this->createProducer();
         }
 
-        return new ProducerTopic(
+        return new ProducerTopicFacade(
             $this->rdKafkaProducer->newTopic($topic, $producerConfiguration->toRdKafkaTopicConfig())
         );
     }

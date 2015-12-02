@@ -1,7 +1,7 @@
 <?php
-namespace Kafka\Topic;
+namespace Kafka;
 
-class ProducerTopic
+class ProducerTopicFacade
 {
     /**
      * @var \RdKafka\ProducerTopic

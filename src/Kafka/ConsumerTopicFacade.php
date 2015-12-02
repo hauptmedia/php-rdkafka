@@ -1,10 +1,22 @@
 <?php
-namespace Kafka\Topic;
+namespace Kafka;
 
 use Kafka\ConsumerInterface;
 
-class ConsumerTopic
+class ConsumerTopicFacade
 {
+    /**
+     * @var \RdKafka\ConsumerTopic
+     */
+    protected $producerTopic;
+
+    /**
+     * @param \RdKafka\ConsumerTopic $producerTopic
+     */
+    public function __construct(\RdKafka\ProducerTopic $producerTopic) {
+        $this->producerTopic = $producerTopic;
+    }
+
     /**
      * @var ConsumerInterface[]
      */
