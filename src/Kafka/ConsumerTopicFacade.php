@@ -8,14 +8,7 @@ class ConsumerTopicFacade
     /**
      * @var \RdKafka\ConsumerTopic
      */
-    protected $producerTopic;
-
-    /**
-     * @param \RdKafka\ConsumerTopic $producerTopic
-     */
-    public function __construct(\RdKafka\ProducerTopic $producerTopic) {
-        $this->producerTopic = $producerTopic;
-    }
+    protected $consumerTopic;
 
     /**
      * @var ConsumerInterface[]
@@ -23,9 +16,11 @@ class ConsumerTopicFacade
     protected $consumers = array();
 
     /**
-     * @var \RdKafka\ConsumerTopic
+     * @param \RdKafka\ConsumerTopic $producerTopic
      */
-    protected $consumerTopic;
+    public function __construct(\RdKafka\ConsumerTopic $producerTopic) {
+        $this->consumerTopic = $producerTopic;
+    }
 
     /**
      * @var bool
