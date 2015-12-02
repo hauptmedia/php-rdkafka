@@ -59,12 +59,6 @@ class ConsumerConfiguration
      */
     protected $offsetStoreMethod = 'file';
 
-    /**
-     * Maximum number of messages to dispatch in one rd_kafka_consume_callback*() call (0 = unlimited)
-     * @var int
-     */
-    protected $consumeCallbackMaxMessages = 0;
-
     public function __construct() {
 
     }
@@ -188,23 +182,6 @@ class ConsumerConfiguration
         return $this;
     }
 
-    /**
-     * @return int
-     */
-    public function getConsumeCallbackMaxMessages()
-    {
-        return $this->consumeCallbackMaxMessages;
-    }
-
-    /**
-     * @param int $consumeCallbackMaxMessages
-     */
-    public function setConsumeCallbackMaxMessages($consumeCallbackMaxMessages)
-    {
-        $this->consumeCallbackMaxMessages = $consumeCallbackMaxMessages;
-        return $this;
-    }
-
     public function toRdKafkaTopicConfig() {
         $topicConf = new \RdKafka\TopicConf();
         $topicConf->set("auto.commit.interval.ms", $this->autoCommitIntervalMs);
@@ -213,7 +190,6 @@ class ConsumerConfiguration
         $topicConf->set("auto.commit.enable", $this->autoCommitEnable);
         $topicConf->set("auto.offset.reset", $this->autoOffsetReset);
         $topicConf->set("offset.store.path", $this->offsetStorePath);
-        $topicConf->set("consume.callback.max.messages", $this->consumeCallbackMaxMessages);
 
         if($this->groupId) {
             $topicConf->set("group.id", $this->groupId);
