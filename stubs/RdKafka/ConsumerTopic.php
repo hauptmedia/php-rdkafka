@@ -49,6 +49,7 @@ final class ConsumerTopic extends Topic
     /**
      * Consume a single message from $partition.
      *
+     * @param int $partition partition to consume from
      * @param int $timeout_ms is maximum amount of time to wait for a message to be received. Consumer must have been previously started with consumeStart().
      *
      * Returns NULL on timeout.
@@ -62,7 +63,7 @@ final class ConsumerTopic extends Topic
      * @throws \RdKafka\Exception
      * @return \Rdkafka\Message|NULL
      */
-    public function consume($timeout_ms) {}
+    public function consume($partition, $timeout_ms) {}
 
     /**
      * Store offset offset for topic rkt partition partition.
