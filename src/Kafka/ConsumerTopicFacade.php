@@ -59,7 +59,7 @@ class ConsumerTopicFacade
     }
 
     public function consumeStop($partition) {
-        $this->rdKafkaConsumerTopic->consumeStop($partition);
+        $this->consumerTopic->consumeStop($partition);
 
         $this->isConsuming = false;
     }
