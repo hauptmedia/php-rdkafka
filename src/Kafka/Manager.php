@@ -3,6 +3,8 @@ namespace Kafka;
 
 use Kafka\Configuration\ConsumerConfiguration;
 use Kafka\Configuration\ProducerConfiguration;
+use Kafka\Topic\ConsumerTopic;
+use Kafka\Topic\ProducerTopic;
 
 class Manager
 {
@@ -20,46 +22,46 @@ class Manager
      */
     protected $rdKafkaConsumer;
 
-    /**
-     * @var ProducerConfiguration
-     */
-    protected $producerConfiguration;
-
-    /**
-     * @var ConsumerConfiguration
-     */
-    protected $consumerConfiguration;
-
-    public function __construct(
-        array $brokers,
-        ProducerConfiguration $producerConfiguration = null,
-        ConsumerConfiguration $consumerConfiguration = null
-    ) {
+    public function __construct(array $brokers) {
         $this->brokers = $brokers;
-
-        if(null !== $consumerConfiguration) {
-            $this->rdKafkaConsumer = $this->createConsumer();
-            $this->consumerConfiguration = $consumerConfiguration;
-        }
-
-        if(null !== $producerConfiguration) {
-            $this->rdKafkaProducer = $this->createProducer();
-            $this->producerConfiguration = $producerConfiguration;
-        }
     }
 
+    /**
+     * @param $topic string
+     * @param ConsumerConfiguration|null $consumerConfiguration
+     * @return ConsumerTopic
+     */
+    public function createConsumerTopic($topic, ConsumerConfiguration $consumerConfiguration = null) {
+        if(null === $consumerConfiguration) {
+            $consumerConfiguration = new ConsumerConfiguration();
+        }
 
-    public function createTopic($topic)
-    {
-        $producerTopic = ($this->rdKafkaProducer !== null) ?
-            $this->rdKafkaProducer->newTopic($topic, $this->producerConfiguration->toRdKafkaTopicConfig()) : null;
+        if(null === $this->rdKafkaConsumer) {
+            $this->rdKafkaConsumer = $this->createConsumer();
+        }
 
+        return new ConsumerTopic(
+            $this->rdKafkaConsumer->newTopic($topic, $consumerConfiguration->toRdKafkaTopicConfig())
+        );
 
-        $consumerTopic = ($this->rdKafkaConsumer !== null) ?
-            $this->rdKafkaConsumer->newTopic($topic, $this->consumerConfiguration->toRdKafkaTopicConfig()) : null;
+    }
 
-        $topic = new Topic($producerTopic, $consumerTopic);
-        return $topic;
+    /**
+     * @param ProducerConfiguration|null $producerConfiguration
+     * @return ProducerTopic
+     */
+    public function createProducerTopic($topic, ProducerConfiguration $producerConfiguration = null) {
+        if(null === $producerConfiguration) {
+            $producerConfiguration = new ProducerConfiguration();
+        }
+
+        if(null === $this->rdKafkaProducer) {
+            $this->rdKafkaProducer = $this->createProducer();
+        }
+
+        return new ProducerTopic(
+            $this->rdKafkaProducer->newTopic($topic, $producerConfiguration->toRdKafkaTopicConfig())
+        );
     }
 
     /**

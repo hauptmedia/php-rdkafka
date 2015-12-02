@@ -194,5 +194,7 @@ class ConsumerConfiguration
         if($this->groupId) {
             $topicConf->set("group.id", $this->groupId);
         }
+
+        return $topicConf;
     }
 }
