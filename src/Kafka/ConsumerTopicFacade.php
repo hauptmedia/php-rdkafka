@@ -44,13 +44,13 @@ class ConsumerTopicFacade
         $this->isConsuming = true;
     }
 
-    public function consume($timeoutInMs=10000)
+    public function consume($partition, $timeoutInMs=10000)
     {
         if(true !== $this->isConsuming) {
             throw new \Exception("Please call consumeStart first to start consuming message");
         }
 
-        while($message = $this->consumerTopic->consume($timeoutInMs)) {
+        while($message = $this->consumerTopic->consume($partition, $timeoutInMs)) {
             foreach($this->consumers as $consumer) {
                 $consumer->consume($message->topic_name, $message->partition, $message->offset, $message->key, $message->payload);
             }
