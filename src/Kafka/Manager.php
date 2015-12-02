@@ -27,7 +27,7 @@ class Manager
     }
 
     /**
-     * @param $topic string
+     * @param string $topic
      * @param ConsumerConfiguration|null $consumerConfiguration
      * @return ConsumerTopic
      */
