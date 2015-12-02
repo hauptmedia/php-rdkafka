@@ -40,7 +40,7 @@ class ConsumerTopicFacade
             throw new \Exception("Could not start consuming because no kafka consumer is available");
         }
 
-        $this->rdKafkaConsumerTopic->consumeStart($partition, $offset);
+        $this->consumerTopic->consumeStart($partition, $offset);
         $this->isConsuming = true;
     }
 
