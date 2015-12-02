@@ -41,13 +41,6 @@ class ProducerConfiguration
     protected $messageTimeoutMs = 300000;
 
     /**
-     * Report offset of produced message back to application. The application must be use the dr_msg_cb to
-     * retrieve the offset from rd_kafka_message_t.offset.
-     * @var bool
-     */
-    protected $produceOffsetReport = false;
-
-    /**
      * @return int
      */
     public function getRequestRequiredAcks()
@@ -119,32 +112,14 @@ class ProducerConfiguration
         return $this;
     }
 
-    /**
-     * @return boolean
-     */
-    public function isProduceOffsetReport()
-    {
-        return $this->produceOffsetReport;
-    }
-
-    /**
-     * @param boolean $produceOffsetReport
-     * @return ProducerConfiguration
-     */
-    public function setProduceOffsetReport($produceOffsetReport)
-    {
-        $this->produceOffsetReport = $produceOffsetReport;
-        return $this;
-    }
-
     public function toRdKafkaTopicConfig() {
         $topicConf = new \RdKafka\TopicConf();
 
         $topicConf->set("request.required.acks", $this->requestRequiredAcks);
         $topicConf->set("enforce.isr.cnt", $this->enforceIsrCnt);
         $topicConf->set("request.timeout.ms", $this->requestTimeoutMs);
-        $topicConf->set("produce.offset.report", $this->produceOffsetReport);
 
+        return $topicConf;
 
     }
 }
