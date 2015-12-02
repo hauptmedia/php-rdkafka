@@ -1,7 +1,7 @@
 {
-    "name": "hauptmedia/rdkafka-stub",
+    "name": "hauptmedia/rdkafka",
     "type": "library",
-    "homepage": "https://github.com/hauptmedia/php-rdkafka-stub",
+    "homepage": "https://github.com/hauptmedia/php-rdkafka",
     "license": "MIT",
     "autoload": {
         "psr-0": { "": "src/" },
