@@ -18,8 +18,8 @@ class ConsumerTopicFacade
     /**
      * @param \RdKafka\ConsumerTopic $producerTopic
      */
-    public function __construct(\RdKafka\ConsumerTopic $producerTopic) {
-        $this->consumerTopic = $producerTopic;
+    public function __construct(\RdKafka\ConsumerTopic $consumerTopic) {
+        $this->consumerTopic = $consumerTopic;
     }
 
     /**
