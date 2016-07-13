@@ -118,6 +118,7 @@ class ProducerConfiguration
         $topicConf->set("request.required.acks", $this->requestRequiredAcks);
         $topicConf->set("enforce.isr.cnt", $this->enforceIsrCnt);
         $topicConf->set("request.timeout.ms", $this->requestTimeoutMs);
+        $topicConf->set("message.timeout.ms", $this->messageTimeoutMs);
 
         return $topicConf;
 
