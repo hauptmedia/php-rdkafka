@@ -6,7 +6,7 @@ See https://github.com/arnaud-lb/php-rdkafka
 
 # Wrapper / Facade objects in the Kafka namespace
 
-You can use the wrapper objects available in the the `Kafka` namespace for a more PHP-style interface to the RdKafka
+You can use the wrapper objects available in the `Kafka` namespace for a more PHP-style interface to the RdKafka
 objects.
 
 ## Example for a producer
